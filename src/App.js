@@ -12,41 +12,51 @@ class App extends Component {
         <header className="App-header">
           LOUD LIST
         </header>
+        <main>
         <p>
-          HI This is LOUDLISTUS its awesome yo
+          This is your one-stop shop for finding out who is playing live music in San Diego.
         </p>
         <h2>Shows</h2>
+        { shows.map(show => 
         <EventCard 
-          venueName="Casbah" 
-          bands={['Heavy Celebration', 'Nice Guys', 'Bedroom Slippers']}
-        />
+          venueName={show.venueName}
+          bands={show.bands}
+        />)
+        }
+        { shows.map(show => 
         <EventCard 
-          venueName="Sodabar" 
-          bands={['Creepies', 'Jerks', 'Silent Rockers']}
-        />
-        <EventCard 
-          venueName="TilTwo Club" 
-          bands={['Jimmy and the Jimmys', 'Quiet Muse', 'Silent Be-Bop']}
-        />
-        <EventCard 
-          venueName="Sodabar" 
-          bands={['Creepies', 'Jerks', 'Silent Rockers']}
-        />
-        <EventCard 
-          venueName="Music Box" 
-          bands={['Mongos', 'Sleepies', 'Loud List Orchestra']}
-        />
-        <EventCard 
-          venueName="Sodabar" 
-          bands={['Creepies', 'Jerks', 'Silent Rockers']}
-        />
-        <div>
-
-
-        </div>
+          venueName={show.venueName}
+          bands={show.bands}
+        />)
+        }
+        </main>
       </div>
     );
   }
 }
+
+const shows = [{
+    venueName:"Casbah",
+    bands:['Heavy Celebration', 'Nice Guys', 'Bedroom Slippers']
+  }, {
+    venueName:"Sodabar", 
+    bands:['Creepies', 'Jerks', 'Silent Rockers']
+  }, {
+    venueName:"TilTwo Club",
+    bands:['Jimmy and the Jimmys', 'Quiet Muse', 'Silent Be-Bop']
+  }, {
+    venueName:"Sodabar", 
+    bands:['Creepies', 'Jerks', 'Silent Rockers']
+  }, {
+    venueName:"Music Box",
+    bands:['Mongos', 'Sleepies', 'Loud List Orchestra']
+  }, {
+    venueName:"Sodabar",
+    bands:['Creepies', 'Jerks', 'Silent Rockers']
+  }, {
+    venueName:"Bancroft Bar",
+    bands:['Sillies', 'Serious Folk', 'Dirty Clowns']
+  }
+];
 
 export default App;
