@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
+import { BrowserRouter , Route} from 'react-router-dom';
 
 import EventCard from './components/EventCard';
 
 import './App.css';
-
+import Logo from './images/loud-list-logo.png';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          LOUD LIST
-        </header>
-        <main>
+          <img 
+            src={Logo}
+            alt="Logo for Loud List"/>
         <p>
           This is your one-stop shop for finding out who is playing live music in San Diego.
         </p>
+        </header>
+        
+        <main>
+          <BrowserRouter>
         <h2>Shows</h2>
         { shows.map(show => 
         <EventCard 
@@ -29,6 +34,7 @@ class App extends Component {
           bands={show.bands}
         />)
         }
+      </BrowserRouter>
         </main>
       </div>
     );

@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 const Card = styled.div`
 	float: left;
 	min-height: 10rem;
+  // padding: 1rem;
   @media only screen and (min-width: 451px) {
     width: 33%;
     color: blue;
@@ -14,14 +16,21 @@ const Card = styled.div`
     width: 50%;
     min-height: 10rem;
   }
+
+  &:hover {
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px gray;
+  }
 `;
 
 const EventCard = ({ venueName, bands }) => {
   return (
-    <Card className="event-card">
-      <h4>{venueName}</h4>
-      { bands.map(band => <div>{band}</div>) }
-    </Card>
+    <Link to="/event/:id">
+      <Card className="event-card">
+        <h4>{venueName}</h4>
+        { bands.map(band => <div>{band}</div>) }
+      </Card>
+    </Link>
   );
 };
 
