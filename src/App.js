@@ -21,19 +21,34 @@ class App extends Component {
         
         <main>
           <BrowserRouter>
-        <h2>Shows</h2>
-        { shows.map(show => 
-        <EventCard 
-          venueName={show.venueName}
-          bands={show.bands}
-        />)
-        }
-        { shows.map(show => 
-        <EventCard 
-          venueName={show.venueName}
-          bands={show.bands}
-        />)
-        }
+            <Route 
+              path="/event/:id"
+              render={() => 
+              <EventCard 
+                venueName="THE VENUE DETAIL"
+                bands={['band1', 'band2', 'band3']}
+              />
+              }
+            />
+            <Route 
+              path="/" 
+              exact={true}
+              render={() => <React.Fragment>
+              <h2>Shows</h2>
+              { shows.map(show => 
+              <EventCard 
+                venueName={show.venueName}
+                bands={show.bands}
+              />)
+              }
+              { shows.map(show => 
+              <EventCard 
+                venueName={show.venueName}
+                bands={show.bands}
+              />)
+              }
+            </React.Fragment>
+            }/>
       </BrowserRouter>
         </main>
       </div>

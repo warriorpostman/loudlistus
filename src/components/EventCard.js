@@ -24,8 +24,9 @@ const Card = styled.div`
 `;
 
 const EventCard = ({ venueName, bands }) => {
+// TODO: MAKE THIS LINK WORK
   return (
-    <Link to="/event/:id">
+    <Link to="/event/event-id">
       <Card className="event-card">
         <h4>{venueName}</h4>
         { bands.map(band => <div>{band}</div>) }
