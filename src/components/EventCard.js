@@ -19,8 +19,8 @@ const Card = styled.div`
   }
 
   &:hover {
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px gray;
+    border-radius: 2px;
+    box-shadow: -1px 1px 1px 1px gray;
   }
 `;
 

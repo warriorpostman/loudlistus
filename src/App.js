@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
-import { BrowserRouter , Route} from 'react-router-dom';
+import { BrowserRouter , Route } from 'react-router-dom';
 
 import EventCard from './components/EventCard';
 import EventPage from './components/EventPage';
 
 import './App.css';
 import Logo from './images/loud-list-logo.png';
+import DatePickerToolbar from './components/DatePickerToolbar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img 
-            src={Logo}
-            alt="Logo for Loud List"/>
+          <a href="/"> 
+            <img 
+              src={Logo}
+              alt="Logo for Loud List"/>
+          </a>
         <p>
           This is your one-stop shop for finding out who is playing live music in San Diego.
         </p>
         </header>
         
         <main>
+          <DatePickerToolbar />
           <BrowserRouter>
             <Route 
               path="/event/:id"
@@ -46,12 +50,6 @@ class App extends Component {
               { shows.map(show => 
               <EventCard 
                 id={show.id}
-                venueName={show.venueName}
-                bands={show.bands}
-              />)
-              }
-              { shows.map(show => 
-              <EventCard 
                 venueName={show.venueName}
                 bands={show.bands}
               />)
