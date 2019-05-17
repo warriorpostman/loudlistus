@@ -11,6 +11,7 @@ const Card = styled.div`
     color: blue;
   }
 
+  // LOOK AT THAT styled-components media query library for this
   @media only screen and (max-width: 450px) {
     float: left;
     width: 50%;
@@ -23,10 +24,10 @@ const Card = styled.div`
   }
 `;
 
-const EventCard = ({ venueName, bands }) => {
+const EventCard = ({ id, venueName, bands, match }) => {
 // TODO: MAKE THIS LINK WORK
   return (
-    <Link to="/event/event-id">
+    <Link to={`/event/${id}`}>
       <Card className="event-card">
         <h4>{venueName}</h4>
         { bands.map(band => <div>{band}</div>) }

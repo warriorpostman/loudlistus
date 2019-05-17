@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter , Route} from 'react-router-dom';
 
 import EventCard from './components/EventCard';
+import EventPage from './components/EventPage';
 
 import './App.css';
 import Logo from './images/loud-list-logo.png';
@@ -23,12 +24,19 @@ class App extends Component {
           <BrowserRouter>
             <Route 
               path="/event/:id"
-              render={() => 
-              <EventCard 
-                venueName="THE VENUE DETAIL"
-                bands={['band1', 'band2', 'band3']}
+              render={({ match }) => {
+              console.log({ match });
+              const data = shows.find(s => s.id.toString() === match.params.id);
+              console.log(data);
+              return (
+              <EventPage 
+                match={match}
+                venueName={data.venueName}
+                bands={data.bands}
+                id={data.id}
               />
-              }
+              );
+              }}
             />
             <Route 
               path="/" 
@@ -37,6 +45,7 @@ class App extends Component {
               <h2>Shows</h2>
               { shows.map(show => 
               <EventCard 
+                id={show.id}
                 venueName={show.venueName}
                 bands={show.bands}
               />)
@@ -57,24 +66,31 @@ class App extends Component {
 }
 
 const shows = [{
+    id: 1,
     venueName:"Casbah",
     bands:['Heavy Celebration', 'Nice Guys', 'Bedroom Slippers']
   }, {
+    id: 2,
     venueName:"Sodabar", 
     bands:['Creepies', 'Jerks', 'Silent Rockers']
   }, {
+    id: 3,
     venueName:"TilTwo Club",
     bands:['Jimmy and the Jimmys', 'Quiet Muse', 'Silent Be-Bop']
   }, {
+    id: 4,
     venueName:"Sodabar", 
     bands:['Creepies', 'Jerks', 'Silent Rockers']
   }, {
+    id: 5,
     venueName:"Music Box",
     bands:['Mongos', 'Sleepies', 'Loud List Orchestra']
   }, {
+    id: 6,
     venueName:"Sodabar",
     bands:['Creepies', 'Jerks', 'Silent Rockers']
   }, {
+    id: 7,
     venueName:"Bancroft Bar",
     bands:['Sillies', 'Serious Folk', 'Dirty Clowns']
   }
