@@ -46,13 +46,17 @@ class App extends Component {
             <Route 
               path="/shows/:date"
               render={({ match }) => 
-              <DailyShowsPage mydate={match.params.date} />
+              <DailyShowsPage 
+                date={match.params.date} 
+                shows={shows}
+              />
               }
             />
             <Route 
               path="/" 
               exact={true}
-              render={() => <React.Fragment>
+              render={() => 
+                  <React.Fragment>
               <h2>Shows</h2>
               { shows.map(show => 
               <EventCard 
@@ -92,12 +96,24 @@ const shows = [{
     bands:['Mongos', 'Sleepies', 'Loud List Orchestra']
   }, {
     id: 6,
-    venueName:"Sodabar",
-    bands:['Creepies', 'Jerks', 'Silent Rockers']
+    venueName:"Black Cat Bar",
+    bands:['Catsy Cats', 'Dogsy Dogs', 'Loud Rockers']
   }, {
     id: 7,
     venueName:"Bancroft Bar",
     bands:['Sillies', 'Serious Folk', 'Dirty Clowns']
+  }, {
+    id: 8,
+    venueName:"Funny Farm",
+    bands:['Sillies', 'Morose Folk', 'Crazy Clowns']
+  }, {
+    id: 9,
+    venueName:"Non-alcoholic Bar",
+    bands:['Teetotalers', 'Serious Folk', 'Sober Clowns']
+  }, {
+    id: 10,
+    venueName:"Alcohol Bar",
+    bands:['Libertines', 'Funny People', 'Drunken Clowns']
   }
 ];
 

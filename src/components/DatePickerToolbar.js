@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-import { BrowserRouter } from 'react-router-dom';
 
 import DatePickerLink from './DatePickerLink';
 
