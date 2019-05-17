@@ -15,6 +15,14 @@ const LinkWrapper = styled.span`
   & > a:hover {
     border: 1px solid green !important;
   }
+
+  & > a:active {
+    border: 1px solid yellow !important;
+  }
+
+  & > a:visited {
+    border: 1px solid purple;
+  }
 `;
 
 const DatePickerLink = ({ text, uri }) => (

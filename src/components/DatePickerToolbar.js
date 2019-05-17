@@ -21,18 +21,16 @@ const DatePickerToolbar = () => {
     console.log(nextFiveDays.map(d => d.format('dddd MMM Do YYYY')));
 
   return (
-    <BrowserRouter>
       <ToolbarContainer>
         {nextFiveDays.map(day => 
           <DatePickerLink 
             key={day.format('MM-DD-YYYY')}
             text={day.format('dddd')}
-            uri={`/date/${day.format('MM-DD-YYYY')}`}
+            uri={`/shows/${day.format('MM-DD-YYYY')}`}
           />
           )
         }
       </ToolbarContainer>
-    </BrowserRouter>
   );
 };
 

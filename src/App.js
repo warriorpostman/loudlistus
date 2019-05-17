@@ -3,6 +3,7 @@ import { BrowserRouter , Route } from 'react-router-dom';
 
 import EventCard from './components/EventCard';
 import EventPage from './components/EventPage';
+import DailyShowsPage from './components/DailyShowsPage';
 
 import './App.css';
 import Logo from './images/loud-list-logo.png';
@@ -19,13 +20,13 @@ class App extends Component {
               alt="Logo for Loud List"/>
           </a>
         <p>
-          This is your one-stop shop for finding out who is playing live music in San Diego.
+          Who is playing live music in San Diego?
         </p>
         </header>
         
         <main>
-          <DatePickerToolbar />
           <BrowserRouter>
+            <DatePickerToolbar />
             <Route 
               path="/event/:id"
               render={({ match }) => {
@@ -41,6 +42,12 @@ class App extends Component {
               />
               );
               }}
+            />
+            <Route 
+              path="/shows/:date"
+              render={({ match }) => 
+              <DailyShowsPage mydate={match.params.date} />
+              }
             />
             <Route 
               path="/" 
