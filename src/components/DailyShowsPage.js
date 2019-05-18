@@ -10,16 +10,17 @@ const DailyShowsPage = ({ date, shows }) => {
   console.log('randomizing', displayShows);
 
   return (
-    <React.Fragment>
+    <div>
       <h2>Shows on {date}</h2>
       { displayShows.map(show => 
       <EventCard 
+        key={"show-card-" + show.id.toString()}
         id={show.id}
         venueName={show.venueName}
         bands={show.bands}
       />)
       }
-    </React.Fragment>
+    </div>
   );
 };
 

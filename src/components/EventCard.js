@@ -31,7 +31,7 @@ const EventCard = ({ id, venueName, bands, match }) => {
   return (
     <Link to={`/event/${id}`}>
       <Card className="event-card">
-        { bands.map(band => <div>{band}</div>) }
+        { bands.map(band => <div key={"band-" + band}>{band}</div>) }
         <h4>@{venueName}</h4>
       </Card>
     </Link>

@@ -11,6 +11,13 @@ import Logo from './images/loud-list-logo.png';
 import DatePickerToolbar from './components/DatePickerToolbar';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentDate: undefined
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -27,7 +34,11 @@ class App extends Component {
         
         <main>
           <BrowserRouter>
-            <DatePickerToolbar />
+            <DatePickerToolbar 
+              onDateSelected={(selectedDate) => 
+              this.setState({ currentDate: selectedDate })
+              }
+            />
             <Route 
               path="/band/:bandName"
               render={({ match }) =>
