@@ -3,6 +3,7 @@ import { BrowserRouter , Route } from 'react-router-dom';
 
 import EventCard from './components/EventCard';
 import EventPage from './components/EventPage';
+import BandPage from './components/BandPage';
 import DailyShowsPage from './components/DailyShowsPage';
 
 import './App.css';
@@ -27,6 +28,11 @@ class App extends Component {
         <main>
           <BrowserRouter>
             <DatePickerToolbar />
+            <Route 
+              path="/band/:bandName"
+              render={({ match }) =>
+              <BandPage band={{ name: match.params.bandName }} />}
+              />
             <Route 
               path="/event/:id"
               render={({ match }) => {

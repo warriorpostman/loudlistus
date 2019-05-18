@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Card = styled.div`
 	float: left;
 	min-height: 10rem;
-  // padding: 1rem;
+  padding: .5rem;
   @media only screen and (min-width: 451px) {
-    width: 33%;
+    width: 30%;
     color: blue;
   }
 
@@ -22,6 +22,8 @@ const Card = styled.div`
     border-radius: 2px;
     box-shadow: -1px 1px 1px 1px gray;
   }
+
+  text-align: left
 `;
 
 const EventCard = ({ id, venueName, bands, match }) => {
@@ -29,8 +31,8 @@ const EventCard = ({ id, venueName, bands, match }) => {
   return (
     <Link to={`/event/${id}`}>
       <Card className="event-card">
-        <h4>{venueName}</h4>
         { bands.map(band => <div>{band}</div>) }
+        <h4>@{venueName}</h4>
       </Card>
     </Link>
   );
