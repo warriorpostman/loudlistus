@@ -43,6 +43,7 @@ const DatePickerToolbar = () => {
               key={day.format('MM-DD-YYYY')}
               date={day}
               uri={`/shows/${day.format('MM-DD-YYYY')}`}
+              currentlySelected={sameDate}
             />
           </span>
           )

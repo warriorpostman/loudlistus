@@ -8,9 +8,10 @@ const LinkWrapper = styled.span`
     text-decoration: none;
   }
 
+
   & > a > div {
     border-radius: 3px;
-    border: ${props => !props.selected ? "1px dashed red" : "1px solid blue"}
+    ${props => props.currentlySelected && "font-weight: 800"}
   }
 
   & > a > div:hover {
@@ -24,6 +25,7 @@ const LinkWrapper = styled.span`
   & > a:visited {
     border: 1px solid purple;
   }
+
 `;
 
 const DayOfWeek = styled.div`
@@ -38,9 +40,11 @@ const Day = styled.div`
   font-size: 2rem;
 `;
 
-const DatePickerLink = ({ date, uri, onDateSelected }) => {
+const DatePickerLink = ({ date, uri, onDateSelected, currentlySelected }) => {
   return ( 
-    <LinkWrapper>
+    <LinkWrapper 
+      currentlySelected={currentlySelected}
+    >
       <Link to={uri} onClick={() => onDateSelected(date)}>
         <div>
           <DayOfWeek>{date.format('dddd').toUpperCase()}</DayOfWeek>

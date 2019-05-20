@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
 import ShowBandsList from './ShowBandsList';
 import VenueImage from './VenueImage';
 
@@ -29,7 +31,10 @@ const EventPage = ({ id, venueName, bands, match }) => {
         <VenueImage />
       </ImageWrapper>
       <EventContent>
-        <h2>@{venueName || 'venue'}</h2>
+        <Link to={"/venue/" + venueName}>
+          <h2>@{venueName || 'venue'}
+          </h2>
+        </Link>
         <ShowBandsList bands={bands} />
       </EventContent>
     </Page>

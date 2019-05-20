@@ -3,6 +3,7 @@ import { BrowserRouter , Route } from 'react-router-dom';
 
 import EventCard from './components/EventCard';
 import EventPage from './components/EventPage';
+import VenuePage from './components/VenuePage';
 import BandPage from './components/BandPage';
 import DailyShowsPage from './components/DailyShowsPage';
 
@@ -59,6 +60,15 @@ class App extends Component {
               />
               );
               }}
+            />
+            <Route 
+              path="/venue/:name"
+              render={({ match }) => 
+              <VenuePage 
+                venueName={match.params.name}
+                shows={shows}
+              />
+              }
             />
             <Route 
               path="/shows/:date"
