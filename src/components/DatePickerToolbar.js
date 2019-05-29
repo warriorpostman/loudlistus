@@ -23,8 +23,7 @@ const DatePickerToolbar = () => {
         acc[index - 1].clone().add(1, 'days')
       );
       return acc;
-    }, [])
-    .reverse();
+    }, []);
     // console.log(nextFiveDays.map(d => d.format('dddd MMM Do YYYY')));
 
   return (
