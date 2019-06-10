@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ShowBandsList from './ShowBandsList';
 import VenueImage from './VenueImage';
+import YouTubeWidget from './YouTubeWidget';
 
 const Page = styled.div`
   margin-top: 4rem;
@@ -24,18 +25,30 @@ const EventContent = styled.div`
   }
 `;
 
+const YouTubeBar = styled.div`
+  display: block;
+  width: 100%;
+`;
+
 const EventPage = ({ id, venueName, bands, match }) => {
   return (
     <Page>
       <ImageWrapper>
         <VenueImage />
       </ImageWrapper>
-      <EventContent>
-        <Link to={"/venue/" + venueName}>
-          <h2>@{venueName || 'venue'}
-          </h2>
-        </Link>
-        <ShowBandsList bands={bands} />
+        <EventContent>
+          <div>
+            <Link to={"/venue/" + venueName}>
+              <h2>@{venueName || 'venue'}
+              </h2>
+            </Link>
+            <ShowBandsList bands={bands} />
+          </div>
+          <YouTubeBar>
+            <YouTubeWidget 
+              url="https://www.youtube.com/embed/c4eyIoU6UoA" 
+            />
+         </YouTubeBar>
       </EventContent>
     </Page>
   );

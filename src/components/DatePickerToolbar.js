@@ -34,6 +34,7 @@ const DatePickerToolbar = () => {
         console.log({ day, selectedDate, sameDate }, 'hrrm');
         return (
           <span 
+            key={'ugh-span' + day.format('MM-DD-YYYY')}
             style={{ 
               border: sameDate ? 'solid 1px blue' : '' 
             }}>
