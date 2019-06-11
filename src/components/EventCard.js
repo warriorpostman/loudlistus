@@ -26,11 +26,17 @@ const Card = styled.div`
   text-align: left
 `;
 
-const EventCard = ({ id, venueName, bands, match }) => {
+const Headliner = styled.span`
+  font-weight: bold;
+  font-size: 1.3rem;
+`;
+
+const EventCard = ({ id, venueName, headliner, bands, match }) => {
 // TODO: MAKE THIS LINK WORK
   return (
     <Link to={`/event/${id}`}>
       <Card className="event-card">
+        <Headliner>{headliner}</Headliner>
         { bands.map(band => <div key={"band-" + band}>{band}</div>) }
         <h4>@{venueName}</h4>
       </Card>

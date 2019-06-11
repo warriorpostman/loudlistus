@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
+const Headliner = styled.li`
+  font-size: 1.4rem !important;
+  font-weight: bolder;
+`;
+
 const BandList = styled.ul`
-  & > li:first-child {
-    font-size: 1.3rem;
-    font-weight: bolder;
-  }
   & > li {
     padding: .25rem;
     text-align: left;
@@ -15,13 +16,19 @@ const BandList = styled.ul`
   }
 `;
 
-const ShowBandsList = ({ bands }) => {
+// TODO: Replace "bands" terminology -> "supportingActs"
+const ShowBandsList = ({ headliner, bands }) => {
   return (
     <BandList>
-        { bands && bands.map(band => 
-        <li key={band}><Link to={`/band/${band}`}>{band}</Link></li>
-        )
-        }
+      <Headliner>
+        <Link to={`/band/${headliner}`}>
+          {headliner} 
+        </Link>
+      </Headliner>
+      { bands.map(band => 
+      <li key={band}><Link to={`/band/${band}`}>{band}</Link></li>
+      )
+      }
     </BandList>
   );
 }

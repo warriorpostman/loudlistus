@@ -30,7 +30,7 @@ const YouTubeBar = styled.div`
   width: 100%;
 `;
 
-const EventPage = ({ id, venueName, bands, match }) => {
+const EventPage = ({ id, venueName, headliner, bands, match }) => {
   return (
     <Page>
       <ImageWrapper>
@@ -42,7 +42,11 @@ const EventPage = ({ id, venueName, bands, match }) => {
               <h2>@{venueName || 'venue'}
               </h2>
             </Link>
-            <ShowBandsList bands={bands} />
+            <div>{headliner}</div>
+            <ShowBandsList 
+              headliner={headliner} 
+              bands={bands} 
+            />
           </div>
           <YouTubeBar>
             <YouTubeWidget 

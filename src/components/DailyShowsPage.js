@@ -7,7 +7,7 @@ const DailyShowsPage = ({ date, shows }) => {
   const before =  shows.slice(0, randIdx);
   const after = shows.slice(randIdx, shows.length);
   const displayShows = after.concat(before);
-  console.log('randomizing', displayShows);
+  // console.log('randomizing', displayShows);
 
   return (
     <div>
@@ -17,7 +17,8 @@ const DailyShowsPage = ({ date, shows }) => {
         key={"show-card-" + show.id.toString()}
         id={show.id}
         venueName={show.venueName}
-        bands={show.bands}
+        headliner={show.headliner}
+        bands={show.support}
       />)
       }
     </div>
