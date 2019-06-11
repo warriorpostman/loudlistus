@@ -30,7 +30,7 @@ const YouTubeBar = styled.div`
   width: 100%;
 `;
 
-const EventPage = ({ id, venueName, headliner, bands, match }) => {
+const EventPage = ({ id, venueName, headliner, bands, eventLink, match }) => {
   return (
     <Page>
       <ImageWrapper>
@@ -47,6 +47,9 @@ const EventPage = ({ id, venueName, headliner, bands, match }) => {
               headliner={headliner} 
               bands={bands} 
             />
+            <a href={`https://sodabarmusic.com/${eventLink}`}>
+              ...more details [TODO REmove hard-coded sodabar]
+            </a>
           </div>
           <YouTubeBar>
             <YouTubeWidget 

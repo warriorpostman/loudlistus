@@ -57,6 +57,7 @@ class App extends Component {
                 venueName={data.venueName}
                 headliner={data.headliner}
                 bands={data.support}
+                eventLink={data.eventLink}
                 id={data.id}
               />
               );
