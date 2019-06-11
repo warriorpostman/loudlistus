@@ -1,18 +1,25 @@
 import React from 'react';
+import moment from 'moment';
 
 import EventCard from './EventCard';
 
 const DailyShowsPage = ({ date, shows }) => {
-  const randIdx = Math.round(Math.random() * 10);
-  const before =  shows.slice(0, randIdx);
-  const after = shows.slice(randIdx, shows.length);
-  const displayShows = after.concat(before);
-  // console.log('randomizing', displayShows);
+  const currentDay = moment(date);
+  // console.log('HEY ', currentDay.format());
+  const currentDayShows = shows.filter(s => {
+    const utcDate = moment.utc(s.utcDate);
+    const showDate = utcDate.local();
+    console.log({ utcDate, showDate });
+    return showDate.isSame(currentDay, 'year') &&
+      showDate.isSame(currentDay, 'month') &&
+      showDate.isSame(currentDay, 'date');
+    // return true;
+  });
 
   return (
     <div>
       <h2>Shows on {date}</h2>
-      { displayShows.map(show => 
+      { currentDayShows.map(show => 
       <EventCard 
         key={"show-card-" + show.id.toString()}
         id={show.id}

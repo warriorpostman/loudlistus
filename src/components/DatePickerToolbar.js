@@ -31,18 +31,19 @@ const DatePickerToolbar = () => {
         {nextFiveDays.map(day =>  {
         const sameDate = day.isSame(selectedDate, 'day') && 
         day.isSame(selectedDate, 'month');
-        console.log({ day, selectedDate, sameDate }, 'hrrm');
+        // console.log({ day, selectedDate, sameDate }, 'hrrm');
+        const dateFormat = "YYYY-MM-DD";
         return (
           <span 
-            key={'ugh-span' + day.format('MM-DD-YYYY')}
+            key={'ugh-span' + day.format(dateFormat)}
             style={{ 
               border: sameDate ? 'solid 1px blue' : '' 
             }}>
             <DatePickerLink 
               onDateSelected={(selected) => onDateSelected(selected)}
-              key={day.format('MM-DD-YYYY')}
+              key={day.format(dateFormat)}
               date={day}
-              uri={`/shows/${day.format('MM-DD-YYYY')}`}
+              uri={`/shows/${day.format(dateFormat)}`}
               currentlySelected={sameDate}
             />
           </span>
